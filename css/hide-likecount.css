@@ -1,11 +1,8 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** TODO ***/
-.yt-spec-button-shape-next__button-text-content > .animated-rolling-number-wiz, /* watch, rating */
-button[title="I like this"] > .yt-spec-button-shape-next__button-text-content, /* watch, rating */
-#vote-count-middle, /* watch, comments */
-#vote-count-middle.ytd-comment-action-buttons-renderer, /* search, latest posts from {youtuber} */
-like-button-view-model .yt-spec-button-shape-next__button-text-content, /* watch, rating */
+/*** SEARCH/SHOPPING ***/
+/* primary */
+ytd-comment-action-buttons-renderer #vote-count-middle, /* like count, latest posts */
 
 /*** SHORTS ***/
 /* action bar */
@@ -14,13 +11,16 @@ reel-action-bar-view-model like-button-view-model button + div > span, /* like c
 ytd-video-description-header-renderer[shorts-panel=""] #factoids > factoid-renderer:first-of-type, /* like count */
 
 /*** WATCH ***/
-/*** live ***/
+/*** live videos ***/
 tp-yt-paper-dialog yt-live-chat-like-button-view-model button > .yt-spec-button-shape-next__button-text-content, /* like count, inside paid message */
-yt-live-chat-ticker-paid-message-item-renderer #like-stats > yt-attributed-string /* like count, live chat - paid message */ {
+yt-live-chat-ticker-paid-message-item-renderer #like-stats > yt-attributed-string, /* like count, live chat - paid message */
+/* regular videos */
+ytd-comment-engagement-bar #vote-count-middle, /* like count, comments */
+like-button-view-model .yt-spec-button-shape-next__button-text-content /* like count */ {
   display: none !important;
 }
 
-/*** TODO ***/
-button[aria-label^="like this video"] .yt-spec-button-shape-next__icon /* watch, rating, center like button */ {
+/*** MARGIN RESET ***/
+like-button-view-model .yt-spec-button-shape-next__icon /* , like button */ {
   margin: 0 !important;
 }

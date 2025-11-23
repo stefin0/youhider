@@ -1,24 +1,27 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
+/*** CHANNEL ***/
+/* shorts */
+ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model-v2), /* shorts */
+ytd-rich-grid-renderer:has(ytm-shorts-lockup-view-model-v2) #header, /* header, latetst popular oldest */
+yt-tab-shape[tab-title="Shorts"], /* tab-nav button, WARNING: may not work for other languages */
+
 /*** HOME/SUBSCRIPTIONS ***/
-ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), /* shorts section */
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), /* shorts */
+a[href="/shorts/"], /* shorts button, guide */
+a:has(path[d="m13.467 1.19-8 4.7a5 5 0 00-.255 8.46 5 5 0 005.32 8.462l8-4.7a5 5 0 00.258-8.462 5 5 0 001.641-6.464l-.12-.217a5 5 0 00-6.844-1.78m5.12 2.79a2.999 2.999 0 01-1.067 4.107l-1.327.78a1 1 0 00.096 1.775l.943.423a3 3 0 01.288 5.323l-8 4.7a3 3 0 01-3.039-5.173l1.327-.78a1 1 0 00-.097-1.775l-.942-.423a3 3 0 01-.288-5.323l8-4.7a3 3 0 014.106 1.066ZM15 12l-5-3v6l5-3Z"]), /* shorts button, guide */
 
 /*** SHORTS ***/
 ytd-shorts, /* shorts */
 
 /*** SEARCH/SHOPPING ***/
 /* primary */
-grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2), /* shorts grid */ 
-ytd-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
-ytd-grid-video-renderer:has(a[href^="/shorts/"]), /* shorts, shorts disguised as normal videos */
+grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2), /* shorts */ 
+ytd-video-renderer:has(a[href*="/shorts"]), /* shorts, shorts disguised as normal videos */
+ytd-grid-video-renderer:has(a[href*="/shorts"]), /* shorts, shorts disguised as normal videos */
 
 /*** WATCH ***/
 /* related */
-ytd-reel-shelf-renderer, /* shorts shelf */ 
-
-/*** TODO ***/
-a[title="Shorts"], /* home, left sidebar link */
-ytm-shorts-lockup-view-model-v2, /* channel, short section */
-yt-tab-shape[tab-title="Shorts"] /* channel, tab-nav */ {
+ytd-reel-shelf-renderer /* shorts */ {
   display: none !important;
 }

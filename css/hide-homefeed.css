@@ -1,7 +1,8 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
+/*** HOME ***/
 ytd-browse[page-subtype="home"], /* home, main content */
-/*** TODO ***/
-a[title="Home"] /* home, left sidebar link */ {
+ytd-guide-entry-renderer:has(a[href="/"]), /* home button */
+ytd-mini-guide-entry-renderer:has(a[href="/"]) /* home button */ {
   display: none !important;
 }

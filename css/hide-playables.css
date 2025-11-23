@@ -1,11 +1,11 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
 /*** HOME/SUBSCRIPTIONS ***/
-ytd-rich-section-renderer:has(a[href^="/playables/"]), /* playables section */
+ytd-rich-section-renderer:has(a[href*="/playables"]), /* playables section */
+a[href*="/playables"], /* playables button, guide */ 
 
+/*** PLAYABLES ***/
 ytd-browse[page-subtype="playables"], /* playables, entire page */
-ytd-browse[page-subtype="mini_app"], /* playables, game */ 
-/*** TODO ***/
-a[title="Playables"] /* home, left sidebar link */ {
+ytd-browse[page-subtype="mini_app"] /* playables, game */ {
   display: none !important;
 }
