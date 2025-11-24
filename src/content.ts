@@ -1,7 +1,9 @@
-let styleElement = null;
+import { Actions, ExtensionMessage } from "./types";
+
+let styleElement: HTMLStyleElement | null = null;
 let lastAppliedCss = "";
 
-function updateStyles(css) {
+function updateStyles(css: string) {
   lastAppliedCss = css;
 
   if (!styleElement) {
@@ -11,8 +13,10 @@ function updateStyles(css) {
 
   styleElement.textContent = css;
 
-  if (!document.head.contains(styleElement)) {
-    const append = () => document.head?.appendChild(styleElement);
+  const elementToAppend = styleElement;
+
+  if (document.head && !document.head.contains(elementToAppend)) {
+    const append = () => document.head?.appendChild(elementToAppend);
 
     if (document.head) {
       append();
@@ -28,8 +32,8 @@ function updateStyles(css) {
   }
 }
 
-chrome.runtime.onMessage.addListener((message) => {
-  if (message.action === "updateCss") {
+chrome.runtime.onMessage.addListener((message: ExtensionMessage) => {
+  if (message.action === Actions.UPDATE_CSS && message.css) {
     updateStyles(message.css);
   }
 });

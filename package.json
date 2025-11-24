@@ -1,0 +1,28 @@
+{
+  "name": "youhider",
+  "version": "0.12.0",
+  "description": "Hide YouTube distractions.",
+  "main": "background.js",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite build --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefin0/youhider.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/stefin0/youhider/issues"
+  },
+  "homepage": "https://github.com/stefin0/youhider#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.1.31",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4"
+  }
+}

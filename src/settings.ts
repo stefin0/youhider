@@ -1,4 +1,10 @@
-export const settings = [
+export interface Setting {
+  key: string;
+  checkboxId: string;
+  cssFile: string;
+}
+
+export const settings: Setting[] = [
   {
     key: "isHiddenCommentCount",
     checkboxId: "hide-commentcount-checkbox",
