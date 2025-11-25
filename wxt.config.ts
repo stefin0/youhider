@@ -7,10 +7,15 @@ export default defineConfig({
     description: "Hide YouTube distractions.",
     version: "0.12.0",
     permissions: ["scripting", "storage"],
+    host_permissions: ["*://*.youtube.com/*"],
+    icons: {
+      "16": "icon/YouHider-16.png",
+      "32": "icon/YouHider-32.png",
+    },
     action: {
       default_icon: {
-        "16": "icons/YouHider-16.png",
-        "32": "icons/YouHider-32.png",
+        "16": "icon/YouHider-16.png",
+        "32": "icon/YouHider-32.png",
       },
       default_title: "YouHider",
     },

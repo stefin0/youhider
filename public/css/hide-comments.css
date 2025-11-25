@@ -7,7 +7,7 @@ ytd-player yt-player-quick-action-buttons toggle-button-view-model:has(path[d^="
 ytd-comments, /* comment section */ 
 
 /*** SHORTS ***/
-ytd-reel-player-overlay-renderer #comments-button, /* comment button */
+ytd-shorts reel-action-bar-view-model > :nth-child(3), /* comment button */
 ytd-shorts #anchored-panel-scrim, /* backdrop, small screens */
 ytd-shorts #anchored-panel:has(ytd-comments), /* comments dialog, small screens */
 

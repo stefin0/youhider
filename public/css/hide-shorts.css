@@ -3,7 +3,6 @@
 /*** CHANNEL ***/
 /* shorts */
 ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model-v2), /* shorts */
-ytd-rich-grid-renderer:has(ytm-shorts-lockup-view-model-v2) #header, /* header, latetst popular oldest */
 yt-tab-shape[tab-title="Shorts"], /* tab-nav button, WARNING: may not work for other languages */
 
 /*** HOME/SUBSCRIPTIONS ***/
