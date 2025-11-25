@@ -40,16 +40,16 @@ ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter 
 ytd-macro-markers-list-item-renderer #time, /* chapter timestamp, inside description */
 ytd-horizontal-card-list-renderer[modern-chapters=""] #items::before, /* blue line connect chapters, inside description */
 /* related */
-yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* video duration, no music */
-yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text /* video duration, music */ {
+ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* video duration, no music */
+ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text /* video duration, music */ {
   display: none !important;
 }
 
 /*** MARGIN RESET ***/
-ytd-video-preview .ytInlinePlayerControlsTimeDisplay:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon */ 
-ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon */
-ytd-thumbnail-overlay-time-status-renderer:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon */
-yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon /* , music */ {
+ytd-video-preview .ytInlinePlayerControlsTimeDisplay:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - HOME->preview */ 
+ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - HOME->regularVideos */
+ytd-thumbnail-overlay-time-status-renderer:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - SEARCH->primary*/
+ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon /* , music - WATCH->related */ {
   margin: 0;
 }
 

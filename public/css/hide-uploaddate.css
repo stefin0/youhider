@@ -51,8 +51,8 @@ ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:not(:has(span)), /* star
 ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:not(:has(span:nth-of-type(3))) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* started streaming date */
 ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(3)) > :is(span:nth-of-type(4), span:nth-of-type(5)), /* started streaming date, when first opening live stream */
 /* related */
-yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model div:nth-of-type(2) > :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* delimter & upload date, regular videos */
-yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
+ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model div:nth-of-type(2) > :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* delimter & upload date, regular videos */
+ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
 /* comments */
 ytd-comments #published-time-text /* upload date */ {
   display: none !important;

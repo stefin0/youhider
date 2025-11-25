@@ -1,6 +1,6 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
 /*** WATCH ***/
-ytd-watch-next-secondary-results-renderer #items /* related videos */ {
+ytd-watch-next-secondary-results-renderer /* related videos */ {
   display: none !important;
 }

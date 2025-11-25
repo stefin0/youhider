@@ -1,9 +1,9 @@
-import { settings } from "../settings";
-import { Actions, ExtensionMessage } from "../types";
+import { settings } from "@/utils/settings";
+import { Actions, ExtensionMessage } from "@/utils/types";
 
 (async () => {
   const keys = settings.map((s) => s.key);
-  const stored = await chrome.storage.local.get(keys);
+  const stored = await browser.storage.local.get(keys);
 
   for (const setting of settings) {
     const checkbox = document.getElementById(setting.checkboxId);
@@ -16,9 +16,9 @@ import { Actions, ExtensionMessage } from "../types";
         async function (this: HTMLInputElement) {
           const state = this.checked;
 
-          await chrome.storage.local.set({ [setting.key]: state });
+          await browser.storage.local.set({ [setting.key]: state });
 
-          chrome.runtime.sendMessage<ExtensionMessage>({
+          browser.runtime.sendMessage<ExtensionMessage>({
             action: Actions.SYNC_SETTING,
             key: setting.key,
             state: state,
