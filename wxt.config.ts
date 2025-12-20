@@ -1,11 +1,12 @@
 import { defineConfig } from "wxt";
+import packageJson from "./package.json";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
   manifest: {
     name: "YouHider",
     description: "Hide YouTube distractions.",
-    version: "0.12.0",
+    version: packageJson.version,
     permissions: ["scripting", "storage"],
     host_permissions: ["*://*.youtube.com/*"],
     icons: {

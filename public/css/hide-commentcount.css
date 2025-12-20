@@ -14,23 +14,13 @@ ytd-engagement-panel-title-header-renderer yt-formatted-string#contextual-info, 
 /* live videos */
 yt-live-chat-ticker-paid-message-item-renderer #reply-stats > yt-attributed-string, /* comment count, live chat - paid message */
 /* regular videos */
-ytd-comment-replies-renderer div[teaser] > div > :is(span:nth-of-type(1), ytd-button-renderer:nth-of-type(2)), /* delimiter & comment count, creator reply*/
-ytd-comment-replies-renderer #more-replies .yt-spec-button-shape-next__button-text-content, /* comment count */
-ytd-comment-replies-renderer #less-replies .yt-spec-button-shape-next__button-text-content, /* comment count */
+yt-sub-thread:has(#creator-thumbnail) > .ytSubThreadSubThreadContent > .show-replies-button > .dot, /* delimiter, creator comment */
+ytd-button-renderer#more-replies-sub-thread > yt-button-shape > button > div:nth-of-type(1) > span, /* comment count */
 ytd-comments-header-renderer #count /* comment count */ {
   display: none !important;
 }
 
 /*** MARGIN RESET ***/
-ytd-comment-action-buttons-renderer #reply-button-end .yt-spec-button-shape-next__icon, /* , latest posts */
-ytd-comment-replies-renderer div[aria-expanded] > ytd-button-renderer .yt-spec-button-shape-next__icon /* , reply button chevron */ {
+ytd-button-renderer#more-replies-sub-thread > yt-button-shape > button > div:nth-of-type(2) /* chevron down */ {
   margin: 0 !important;
-}
-
-/*** TRANSFORM TO CIRCLE ***/
-ytd-comment-replies-renderer div[aria-expanded] > ytd-button-renderer > yt-button-shape > button /* , reply button */ {
-  height: 40px !important;
-  width: 40px !important;
-  border-radius: 50% !important;
-  margin-left: -8px !important;
 }

@@ -25,7 +25,8 @@ ytd-notification-renderer div.metadata > yt-formatted-string:nth-of-type(2), /* 
 
 /*** PLAYLISTS ***/
 ytd-rich-item-renderer:has(yt-collections-stack) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
-ytd-playlist-video-renderer #byline-container :is(span:nth-of-type(2), span:nth-of-type(3)), /* views & delimiter */
+ytd-playlist-video-renderer #byline-container :is(span:nth-of-type(2), span:nth-of-type(3)), /* upload date & delimiter */
+ytd-playlist-video-renderer:has(.yt-badge-shape--membership) #byline-container :is(#separator, #video-info), /* upload date & delimiter */
 
 /*** SEARCH/SHOPPING ***/
 /* primary */

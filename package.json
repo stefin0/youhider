@@ -2,7 +2,7 @@
   "name": "youhider",
   "description": "Hide YouTube distractions.",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.12.1",
   "type": "module",
   "scripts": {
     "dev": "wxt",

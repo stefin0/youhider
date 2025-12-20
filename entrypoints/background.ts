@@ -11,10 +11,12 @@ export default defineBackground(() => {
       .filter((setting) => stored[setting.key])
       .map(async (setting) => {
         try {
-          const url = browser.runtime.getURL(setting.cssFile as any);
+          const url = browser.runtime.getURL(setting.cssFile);
           const response = await fetch(url);
+
           if (!response.ok)
             throw new Error(`Failed to load ${setting.cssFile}`);
+
           return await response.text();
         } catch (e) {
           console.error(e);
@@ -29,12 +31,16 @@ export default defineBackground(() => {
   async function pushCssToAllTabs() {
     const tabs = await browser.tabs.query({ url: "*://*.youtube.com/*" });
     const css = await getCombinedCss();
+
     for (const tab of tabs) {
       if (tab.id) {
         browser.tabs
-          .sendMessage(tab.id, { action: "updateCss", css: css })
-          .catch(() => {
-            // Tab might be loading or closed; safe to ignore for this use case
+          .sendMessage(tab.id, {
+            action: Actions.UPDATE_CSS,
+            css: css,
+          })
+          .catch((err) => {
+            console.debug(`Sync skipped for tab ${tab.id}:`, err.message);
           });
       }
     }
@@ -42,11 +48,11 @@ export default defineBackground(() => {
 
   browser.runtime.onMessage.addListener(
     async (message: ExtensionMessage, _sender) => {
-      if (message.action === "syncSetting") {
+      if (message.action === Actions.SYNC_SETTING) {
         await pushCssToAllTabs();
         return;
       }
-      if (message.action === "getInitialCss") {
+      if (message.action === Actions.GET_INITIAL_CSS) {
         const css = await getCombinedCss();
         return { css };
       }

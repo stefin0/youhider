@@ -48,7 +48,7 @@ export default defineContentScript({
     });
 
     browser.runtime
-      .sendMessage({ action: "getInitialCss" })
+      .sendMessage({ action: Actions.GET_INITIAL_CSS })
       .then((response) => {
         updateStyles(response?.css || "");
       });
