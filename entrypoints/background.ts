@@ -47,14 +47,16 @@ export default defineBackground(() => {
   }
 
   browser.runtime.onMessage.addListener(
-    async (message: ExtensionMessage, _sender) => {
-      if (message.action === Actions.SYNC_SETTING) {
-        await pushCssToAllTabs();
-        return;
-      }
+    (message: ExtensionMessage, _sender, sendResponse) => {
       if (message.action === Actions.GET_INITIAL_CSS) {
-        const css = await getCombinedCss();
-        return { css };
+        getCombinedCss().then((css) => {
+          sendResponse({ css });
+        });
+        return true;
+      }
+
+      if (message.action === Actions.SYNC_SETTING) {
+        pushCssToAllTabs();
       }
     },
   );
