@@ -1,0 +1,7 @@
+/*** HOME/SUBSCRIPTIONS ***/
+ytd-rich-item-renderer:has(a[href*="start_radio"]), /* mixes */
+
+/*** SEARCH/SHOPPING ***/
+yt-lockup-view-model:has(a[href*="start_radio"]) /* mixes */ {
+  display: none !important;
+}

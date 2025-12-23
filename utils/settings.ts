@@ -43,6 +43,11 @@ export const settings: Setting[] = [
     cssFile: "/css/hide-membervideos.css",
   },
   {
+    key: "isHiddenMixes",
+    checkboxId: "hide-mixes-checkbox",
+    cssFile: "/css/hide-mixes.css",
+  },
+  {
     key: "isHiddenPlayables",
     checkboxId: "hide-playables-checkbox",
     cssFile: "/css/hide-playables.css",
