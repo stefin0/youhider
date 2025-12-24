@@ -1,85 +1,119 @@
 import { PublicPath } from "wxt/browser";
 
+export type SettingCategory = "Metrics" | "Content";
+
 export interface Setting {
   key: string;
-  checkboxId: string;
+  label: string;
+  tooltip: string;
+  category: SettingCategory;
   cssFile: PublicPath;
 }
 
 export const settings: Setting[] = [
   {
     key: "isHiddenCommentCount",
-    checkboxId: "hide-commentcount-checkbox",
+    label: "Hide Comment Count",
+    tooltip: "Hides comment count.",
+    category: "Metrics",
     cssFile: "/css/hide-commentcount.css",
   },
   {
     key: "isHiddenComments",
-    checkboxId: "hide-comments-checkbox",
+    label: "Hide Comments",
+    tooltip: "Hides comments.",
+    category: "Content",
     cssFile: "/css/hide-comments.css",
   },
   {
     key: "isHiddenEndscreen",
-    checkboxId: "hide-endscreen-checkbox",
+    label: "Hide End Screen",
+    tooltip: "Hides content shown near and at the end of videos.",
+    category: "Content",
     cssFile: "/css/hide-endscreen.css",
   },
   {
     key: "isHiddenHomeFeed",
-    checkboxId: "hide-homefeed-checkbox",
+    label: "Hide Home Feed",
+    tooltip: "Hides Home feed.",
+    category: "Content",
     cssFile: "/css/hide-homefeed.css",
   },
   {
     key: "isHiddenLikes",
-    checkboxId: "hide-likecount-checkbox",
+    label: "Hide Like Count",
+    tooltip: "Hides like count.",
+    category: "Metrics",
     cssFile: "/css/hide-likecount.css",
   },
   // {
   //   key: "isHiddenLiveChat",
-  //   checkboxId: "hide-livechat-checkbox",
+  //   label: "Hide Live Chat",
+  //   tooltip: "Hides live chat."
+  //   category: "Content",
   //   cssFile: "/css/hide-livechat.css",
   // },
   {
     key: "isHiddenMemberVideos",
-    checkboxId: "hide-membervideos-checkbox",
+    label: "Hide Member Videos",
+    tooltip: "Hides Member videos.",
+    category: "Content",
     cssFile: "/css/hide-membervideos.css",
   },
   {
     key: "isHiddenMixes",
-    checkboxId: "hide-mixes-checkbox",
+    label: "Hide Mixes",
+    tooltip: "Hides Mixes.",
+    category: "Content",
     cssFile: "/css/hide-mixes.css",
   },
   {
     key: "isHiddenPlayables",
-    checkboxId: "hide-playables-checkbox",
+    label: "Hide Playables",
+    tooltip: "Hides Playables.",
+    category: "Content",
     cssFile: "/css/hide-playables.css",
   },
   {
     key: "isHiddenRelatedVideos",
-    checkboxId: "hide-relatedvideos-checkbox",
+    label: "Hide Related Videos",
+    tooltip: "Hides videos shown around the currently playing video.",
+    category: "Content",
     cssFile: "/css/hide-relatedvideos.css",
   },
   {
     key: "isHiddenShorts",
-    checkboxId: "hide-shorts-checkbox",
+    label: "Hide Shorts",
+    tooltip: "Hides Shorts.",
+    category: "Content",
     cssFile: "/css/hide-shorts.css",
   },
   {
     key: "isHiddenSubscriberCount",
-    checkboxId: "hide-subscribercount-checkbox",
+    label: "Hide Subscriber Count",
+    tooltip: "Hides subscriber count.",
+    category: "Metrics",
     cssFile: "/css/hide-subscribercount.css",
   },
   {
     key: "isHiddenUploadDate",
-    checkboxId: "hide-uploaddate-checkbox",
+    label: "Hide Upload Date",
+    tooltip: "Hides upload date.",
+    category: "Metrics",
     cssFile: "/css/hide-uploaddate.css",
   },
   {
     key: "isHiddenVideoDuration",
-    checkboxId: "hide-videoduration-checkbox",
+    label: "Hide Video Duration",
+    tooltip: "Hides video duration.",
+    category: "Metrics",
     cssFile: "/css/hide-videoduration.css",
   },
   {
     key: "isHiddenViews",
-    checkboxId: "hide-viewcount-checkbox",
+    label: "Hide View Count",
+    tooltip: "Hides view, watching, and waiting count.",
+    category: "Metrics",
     cssFile: "/css/hide-viewcount.css",
   },
 ];
