@@ -13,8 +13,14 @@ function createSettingsRow(
   input.checked = initialValue;
 
   input.addEventListener("change", async () => {
-    const state = input.checked;
-    await browser.storage.local.set({ [setting.key]: state });
+    const desiredState = input.checked;
+
+    try {
+      await browser.storage.local.set({ [setting.key]: desiredState });
+    } catch (error) {
+      console.error(error);
+      input.checked = !desiredState;
+    }
   });
 
   label.appendChild(input);
@@ -28,7 +34,13 @@ function createSettingsRow(
   if (!form) return;
 
   const keys = settings.map((setting) => setting.key);
-  const stored = await browser.storage.local.get(keys);
+
+  let stored: Record<string, boolean> = {};
+  try {
+    stored = await browser.storage.local.get(keys);
+  } catch (error) {
+    console.error(error);
+  }
 
   const categories: Record<SettingCategory, Setting[]> = {
     Metrics: [],
