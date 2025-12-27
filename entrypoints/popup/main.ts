@@ -1,5 +1,4 @@
 import { Setting, SettingCategory, settings } from "@/utils/settings";
-import { Actions, ExtensionMessage } from "@/utils/types";
 
 function createSettingsRow(
   setting: Setting,
@@ -16,16 +15,6 @@ function createSettingsRow(
   input.addEventListener("change", async () => {
     const state = input.checked;
     await browser.storage.local.set({ [setting.key]: state });
-
-    try {
-      await browser.runtime.sendMessage<ExtensionMessage>({
-        action: Actions.SYNC_SETTING,
-        key: setting.key,
-        state: state,
-      });
-    } catch (error) {
-      console.error("Failed to sync setting:", error);
-    }
   });
 
   label.appendChild(input);

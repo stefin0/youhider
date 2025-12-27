@@ -1,79 +1,66 @@
 import { defineBackground } from "#imports";
 import { settings } from "@/utils/settings";
-import { ExtensionMessage } from "@/utils/types";
 
 export default defineBackground(() => {
-  async function getCombinedCss(): Promise<string> {
-    const keys = settings.map((s) => s.key);
-    const stored = await browser.storage.local.get(keys);
+  async function syncRegisteredScripts() {
+    const stored = await browser.storage.local.get(null);
 
-    const fetchPromises = settings
-      .filter((setting) => stored[setting.key])
-      .map(async (setting) => {
-        try {
-          const url = browser.runtime.getURL(setting.cssFile);
-          const response = await fetch(url);
+    const activeSettings = settings.filter(
+      (setting) => stored[setting.key] === true,
+    );
 
-          if (!response.ok)
-            throw new Error(`Failed to load ${setting.cssFile}`);
+    const newScripts = activeSettings.map((setting) => ({
+      id: `css-${setting.key}`,
+      js: [],
+      css: [setting.cssFile],
+      matches: ["*://*.youtube.com/*"],
+      runAt: "document_start" as const,
+    }));
 
-          return await response.text();
-        } catch (e) {
-          console.error(e);
-          return ""; // Fail gracefully by returning empty string for this file
-        }
-      });
+    const existing = await browser.scripting.getRegisteredContentScripts();
+    const existingIds = existing
+      .map((script) => script.id)
+      .filter((id) => id.startsWith("css-"));
 
-    const cssParts = await Promise.all(fetchPromises);
-    return cssParts.join("\n");
-  }
+    if (existingIds.length > 0) {
+      await browser.scripting.unregisterContentScripts({ ids: existingIds });
+    }
 
-  async function pushCssToAllTabs() {
-    const tabs = await browser.tabs.query({ url: "*://*.youtube.com/*" });
-    const css = await getCombinedCss();
-
-    for (const tab of tabs) {
-      if (tab.id) {
-        browser.tabs
-          .sendMessage(tab.id, {
-            action: Actions.UPDATE_CSS,
-            css: css,
-          })
-          .catch((err) => {
-            console.debug(`Sync skipped for tab ${tab.id}:`, err.message);
-          });
-      }
+    if (newScripts.length > 0) {
+      await browser.scripting.registerContentScripts(newScripts);
     }
   }
 
-  browser.runtime.onMessage.addListener(
-    (message: ExtensionMessage, _sender, sendResponse) => {
-      if (message.action === Actions.GET_INITIAL_CSS) {
-        getCombinedCss().then((css) => {
-          sendResponse({ css });
-        });
-        return true;
-      }
+  browser.runtime.onInstalled.addListener(syncRegisteredScripts);
+  browser.runtime.onStartup.addListener(syncRegisteredScripts);
 
-      if (message.action === Actions.SYNC_SETTING) {
-        pushCssToAllTabs();
-      }
-    },
-  );
+  browser.storage.onChanged.addListener(async (changes, area) => {
+    if (area !== "local") return;
 
-  browser.runtime.onInstalled.addListener(async (details) => {
-    if (details.reason === "install") {
-      const tabs = await browser.tabs.query({ url: "*://*.youtube.com/*" });
-      for (const tab of tabs) {
-        if (tab.id) {
-          try {
-            await browser.scripting.executeScript({
+    await syncRegisteredScripts();
+
+    const tabs = await browser.tabs.query({ url: "*://*.youtube.com/*" });
+    for (const tab of tabs) {
+      if (!tab.id) continue;
+
+      for (const [key, change] of Object.entries(changes)) {
+        const setting = settings.find((setting) => setting.key === key);
+        if (!setting) continue;
+
+        if (change.newValue === true) {
+          browser.scripting
+            .insertCSS({
               target: { tabId: tab.id },
-              files: ["content.js"],
-            });
-          } catch (err) {
-            console.error(`Failed to inject script in tab ${tab.id}: ${err}`);
-          }
+              files: [setting.cssFile],
+            })
+            .catch(console.error);
+        } else {
+          browser.scripting
+            .removeCSS({
+              target: { tabId: tab.id },
+              files: [setting.cssFile],
+            })
+            .catch(console.error);
         }
       }
     }
