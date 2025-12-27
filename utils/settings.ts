@@ -46,13 +46,6 @@ export const settings: Setting[] = [
     category: "Metrics",
     cssFile: "/css/hide-likecount.css",
   },
-  // {
-  //   key: "hidelivechat",
-  //   label: "Hide Live Chat",
-  //   tooltip: "Hides live chat."
-  //   category: "Content",
-  //   cssFile: "/css/hide-livechat.css",
-  // },
   {
     key: "hidemembervideos",
     label: "Hide Member Videos",

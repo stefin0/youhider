@@ -1,9 +1,0 @@
-/* CSS comments explanation: /* element being hidden, [note]  */
-
-html[data-yh-hidelivechat] {
-  /*** TODO ***/
-  #chat-container, /* watch, live chat */
-  #teaser-carousel:has([aria-label*="Live chat"]) /* watch, near description */ {
-    display: none !important;
-  }
-}
