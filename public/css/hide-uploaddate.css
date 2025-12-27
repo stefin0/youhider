@@ -1,61 +1,63 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** CHANNEL/GAMING ***/
-ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2), /* upload date */ 
-ytd-grid-video-renderer:not(:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"])) #metadata-line > span:only-of-type, /* upload date, WARNING: hides views too */
-/* home > channel video */
-ytd-channel-video-player-renderer ytd-video-meta-block #metadata-line span:nth-of-type(2), /* upload date */
-/* home > posts */
-ytd-post-renderer :is(#author-divider, #published-time-text), /* upload date */
-/* posts */
-ytd-backstage-post-thread-renderer #published-time-text, /* upload date */
+html[data-yh-hideuploaddate] {
+  /*** CHANNEL/GAMING ***/
+  ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2), /* upload date */ 
+  ytd-grid-video-renderer:not(:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"])) #metadata-line > span:only-of-type, /* upload date, WARNING: hides views too */
+  /* home > channel video */
+  ytd-channel-video-player-renderer ytd-video-meta-block #metadata-line span:nth-of-type(2), /* upload date */
+  /* home > posts */
+  ytd-post-renderer :is(#author-divider, #published-time-text), /* upload date */
+  /* posts */
+  ytd-backstage-post-thread-renderer #published-time-text, /* upload date */
 
-/*** HOME/SUBSCRIPTIONS ***/
-ytd-rich-item-renderer:not(:has(lockup-attachments-view-model)) yt-content-metadata-view-model div:nth-of-type(2) :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* delimter & upload date */
-ytd-rich-item-renderer:has(path[d="M6 .5a5.5 5.5 0 100 11 5.5 5.5 0 000-11Zm.27 2.045.906 1.837 2.027.295a.3.3 0 01.166.511l-1.467 1.43.346 2.019a.3.3 0 01-.435.316L6 8l-1.813.953a.3.3 0 01-.435-.316l.346-2.019-1.467-1.43a.3.3 0 01.166-.511l2.027-.295.907-1.837a.3.3 0 01.539 0Z"]) yt-content-metadata-view-model > div:nth-of-type(2) > span, /* upload date, member videos */
-/* survey */
-ytd-inline-survey-renderer #metadata-line > span:nth-of-type(2), /* upload date */
-/* mixes (TODO) */
+  /*** HOME/SUBSCRIPTIONS ***/
+  ytd-rich-item-renderer:not(:has(lockup-attachments-view-model)) yt-content-metadata-view-model div:nth-of-type(2) :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* delimter & upload date */
+  ytd-rich-item-renderer:has(path[d="M6 .5a5.5 5.5 0 100 11 5.5 5.5 0 000-11Zm.27 2.045.906 1.837 2.027.295a.3.3 0 01.166.511l-1.467 1.43.346 2.019a.3.3 0 01-.435.316L6 8l-1.813.953a.3.3 0 01-.435-.316l.346-2.019-1.467-1.43a.3.3 0 01.166-.511l2.027-.295.907-1.837a.3.3 0 01.539 0Z"]) yt-content-metadata-view-model > div:nth-of-type(2) > span, /* upload date, member videos */
+  /* survey */
+  ytd-inline-survey-renderer #metadata-line > span:nth-of-type(2), /* upload date */
+  /* mixes (TODO) */
 
-/*** LIVE/MUSIC ***/
-ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
-ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
+  /*** LIVE/MUSIC ***/
+  ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* streamed date */
+  ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* streamed date, members only */
 
-/*** NOTIFICATIONS ***/
-ytd-notification-renderer div.metadata > yt-formatted-string:nth-of-type(2), /* upload date */
+  /*** NOTIFICATIONS ***/
+  ytd-notification-renderer div.metadata > yt-formatted-string:nth-of-type(2), /* upload date */
 
-/*** PLAYLISTS ***/
-ytd-rich-item-renderer:has(yt-collections-stack) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
-ytd-playlist-video-renderer #byline-container :is(span:nth-of-type(2), span:nth-of-type(3)), /* upload date & delimiter */
-ytd-playlist-video-renderer:has(.yt-badge-shape--membership) #byline-container :is(#separator, #video-info), /* upload date & delimiter */
+  /*** PLAYLISTS ***/
+  ytd-rich-item-renderer:has(yt-collections-stack) yt-content-metadata-view-model > div:nth-child(2):nth-last-child(2), /* updated date */
+  ytd-playlist-video-renderer #byline-container :is(span:nth-of-type(2), span:nth-of-type(3)), /* upload date & delimiter */
+  ytd-playlist-video-renderer:has(.yt-badge-shape--membership) #byline-container :is(#separator, #video-info), /* upload date & delimiter */
 
-/*** SEARCH/SHOPPING ***/
-/* primary */
-ytd-watch-card-hero-video-renderer yt-formatted-string#watch-card-subtitle, /* upload date, WARNING: hides views and name too */
-ytd-watch-card-compact-video-renderer yt-formatted-string.subtitle, /* upload date, WARNING: hides views too */
-ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
+  /*** SEARCH/SHOPPING ***/
+  /* primary */
+  ytd-watch-card-hero-video-renderer yt-formatted-string#watch-card-subtitle, /* upload date, WARNING: hides views and name too */
+  ytd-watch-card-compact-video-renderer yt-formatted-string.subtitle, /* upload date, WARNING: hides views too */
+  ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2), /* upload date */
 
-/*** SHORTS ***/
-/* description */
-ytd-video-description-header-renderer[shorts-panel=""] upload-time-factoid-renderer, /* upload date */
+  /*** SHORTS ***/
+  /* description */
+  ytd-video-description-header-renderer[shorts-panel=""] upload-time-factoid-renderer, /* upload date */
 
-/*** WATCH ***/
-/* description */
-ytd-watch-info-text #date-text, /* upload date, fetched every 5 min -- live and regular videos after 5 min */
-/* end screen */
-ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* upload date, WARNING: hides upload date too */
-/* regular videos */
-ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info > :is(span:nth-of-type(3), span:nth-of-type(4)), /* upload date */
-ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text[detailed]:has(#view-count[aria-label]:not([aria-label=""])):has(yt-formatted-string#info a) yt-formatted-string#info > :is(span:nth-of-type(1), span:nth-of-type(2)), /* upload date, description expanded & endpoints */
-ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text[detailed]:has(#view-count[aria-label]:not([aria-label=""])):not(:has(yt-formatted-string#info a)) yt-formatted-string#info, /* upload date, description expanded & no endpoints */
-/* live videos */
-ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:not(:has(span)), /* started streaming date */
-ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:not(:has(span:nth-of-type(3))) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* started streaming date */
-ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(3)) > :is(span:nth-of-type(4), span:nth-of-type(5)), /* started streaming date, when first opening live stream */
-/* related */
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model div:nth-of-type(2) > :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* delimter & upload date, regular videos */
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
-/* comments */
-ytd-comments #published-time-text /* upload date */ {
-  display: none !important;
+  /*** WATCH ***/
+  /* description */
+  ytd-watch-info-text #date-text, /* upload date, fetched every 5 min -- live and regular videos after 5 min */
+  /* end screen */
+  ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* upload date, WARNING: hides upload date too */
+  /* regular videos */
+  ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info > :is(span:nth-of-type(3), span:nth-of-type(4)), /* upload date */
+  ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text[detailed]:has(#view-count[aria-label]:not([aria-label=""])):has(yt-formatted-string#info a) yt-formatted-string#info > :is(span:nth-of-type(1), span:nth-of-type(2)), /* upload date, description expanded & endpoints */
+  ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text[detailed]:has(#view-count[aria-label]:not([aria-label=""])):not(:has(yt-formatted-string#info a)) yt-formatted-string#info, /* upload date, description expanded & no endpoints */
+  /* live videos */
+  ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:not(:has(span)), /* started streaming date */
+  ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:not(:has(span:nth-of-type(3))) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* started streaming date */
+  ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(3)) > :is(span:nth-of-type(4), span:nth-of-type(5)), /* started streaming date, when first opening live stream */
+  /* related */
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model div:nth-of-type(2) > :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* delimter & upload date, regular videos */
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)):not(:has(yt-flexible-actions-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* streamed date */
+  /* comments */
+  ytd-comments #published-time-text /* upload date */ {
+    display: none !important;
+  }
 }

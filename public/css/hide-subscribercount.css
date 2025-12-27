@@ -1,20 +1,22 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** CHANNEL ***/
-yt-page-header-renderer yt-content-metadata-view-model div:nth-of-type(2) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* delimiters & subscriber count */
-ytd-grid-channel-renderer #thumbnail-attribution, /* subscriber count */
+html[data-yh-hidesubscribercount] {
+  /*** CHANNEL ***/
+  yt-page-header-renderer yt-content-metadata-view-model div:nth-of-type(2) > :is(span:nth-of-type(1), span:nth-of-type(2)), /* delimiters & subscriber count */
+  ytd-grid-channel-renderer #thumbnail-attribution, /* subscriber count */
 
-/*** SEARCH/SHOPPING ***/
-/* primary */
-ytd-channel-renderer #metadata :is(#dot, #dot + span), /* delimiter & subscriber count */
+  /*** SEARCH/SHOPPING ***/
+  /* primary */
+  ytd-channel-renderer #metadata :is(#dot, #dot + span), /* delimiter & subscriber count */
 
-/*** WATCH ***/
-/* player */
-ytd-player .ytp-ce-channel-subscribers-text, /* subscriber count */
-/* description */
-ytd-video-description-infocards-section-renderer #header-text #subtitle, /* subscriber count */
-/* top-row */
-yt-dialog-view-model yt-list-item-view-model .yt-list-item-view-model__text-wrapper > span:first-of-type, /* subscriber count, WARNING: hides creator name, collaborators */
-ytd-video-owner-renderer yt-formatted-string#owner-sub-count /* subscriber count */ {
-  display: none !important;
+  /*** WATCH ***/
+  /* player */
+  ytd-player .ytp-ce-channel-subscribers-text, /* subscriber count */
+  /* description */
+  ytd-video-description-infocards-section-renderer #header-text #subtitle, /* subscriber count */
+  /* top-row */
+  yt-dialog-view-model yt-list-item-view-model .yt-list-item-view-model__text-wrapper > span:first-of-type, /* subscriber count, WARNING: hides creator name, collaborators */
+  ytd-video-owner-renderer yt-formatted-string#owner-sub-count /* subscriber count */ {
+    display: none !important;
+  }
 }

@@ -1,8 +1,10 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** HOME ***/
-ytd-browse[page-subtype="home"], /* home, main content */
-ytd-guide-entry-renderer:has(a[href="/"]), /* home button */
-ytd-mini-guide-entry-renderer:has(a[href="/"]) /* home button */ {
-  display: none !important;
+html[data-yh-hidehomefeed] {
+  /*** HOME ***/
+  ytd-browse[page-subtype="home"], /* home, main content */
+  ytd-guide-entry-renderer:has(a[href="/"]), /* home button */
+  ytd-mini-guide-entry-renderer:has(a[href="/"]) /* home button */ {
+    display: none !important;
+  }
 }

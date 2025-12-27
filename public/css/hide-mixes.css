@@ -1,7 +1,9 @@
 /*** HOME/SUBSCRIPTIONS ***/
-ytd-rich-item-renderer:has(a[href*="start_radio"]), /* mixes */
+html[data-yh-hidemixes] {
+  ytd-rich-item-renderer:has(a[href*="start_radio"]), /* mixes */
 
-/*** SEARCH/SHOPPING ***/
-yt-lockup-view-model:has(a[href*="start_radio"]) /* mixes */ {
-  display: none !important;
+  /*** SEARCH/SHOPPING ***/
+  yt-lockup-view-model:has(a[href*="start_radio"]) /* mixes */ {
+    display: none !important;
+  }
 }
