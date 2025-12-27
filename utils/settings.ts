@@ -1,4 +1,4 @@
-import { PublicPath } from "wxt/browser";
+import type { PublicPath } from "wxt/browser";
 
 export type SettingCategory = "Metrics" | "Content";
 

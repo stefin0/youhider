@@ -1,5 +1,8 @@
 import { defineConfig } from "wxt";
 import packageJson from "./package.json";
+import { settings } from "./utils/settings";
+
+const contentScriptsCss = settings.map((setting) => setting.cssFile);
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -12,23 +15,7 @@ export default defineConfig({
     content_scripts: [
       {
         matches: ["*://*.youtube.com/*"],
-        css: [
-          "css/hide-commentcount.css",
-          "css/hide-comments.css",
-          "css/hide-endscreen.css",
-          "css/hide-homefeed.css",
-          "css/hide-likecount.css",
-          // "css/hide-livechat.css",
-          "css/hide-membervideos.css",
-          "css/hide-mixes.css",
-          "css/hide-playables.css",
-          "css/hide-relatedvideos.css",
-          "css/hide-shorts.css",
-          "css/hide-subscribercount.css",
-          "css/hide-uploaddate.css",
-          "css/hide-videoduration.css",
-          "css/hide-viewcount.css",
-        ],
+        css: contentScriptsCss,
         run_at: "document_start",
       },
     ],
