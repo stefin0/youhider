@@ -1,26 +1,28 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** SEARCH/SHOPPING ***/
-/* primary */
-ytd-comment-action-buttons-renderer #vote-count-middle, /* like count, latest posts */
+html[data-yh-hidelikecount] {
+  /*** SEARCH/SHOPPING ***/
+  /* primary */
+  ytd-comment-action-buttons-renderer #vote-count-middle, /* like count, latest posts */
 
-/*** SHORTS ***/
-/* action bar */
-reel-action-bar-view-model like-button-view-model button + div > span, /* like count */
-/* description */
-ytd-video-description-header-renderer[shorts-panel=""] #factoids > factoid-renderer:first-of-type, /* like count */
+  /*** SHORTS ***/
+  /* action bar */
+  reel-action-bar-view-model like-button-view-model button + div > span, /* like count */
+  /* description */
+  ytd-video-description-header-renderer[shorts-panel=""] #factoids > factoid-renderer:first-of-type, /* like count */
 
-/*** WATCH ***/
-/*** live videos ***/
-tp-yt-paper-dialog yt-live-chat-like-button-view-model button > .yt-spec-button-shape-next__button-text-content, /* like count, inside paid message */
-yt-live-chat-ticker-paid-message-item-renderer #like-stats > yt-attributed-string, /* like count, live chat - paid message */
-/* regular videos */
-ytd-comment-engagement-bar #vote-count-middle, /* like count, comments */
-like-button-view-model .yt-spec-button-shape-next__button-text-content /* like count */ {
-  display: none !important;
-}
+  /*** WATCH ***/
+  /*** live videos ***/
+  tp-yt-paper-dialog yt-live-chat-like-button-view-model button > .yt-spec-button-shape-next__button-text-content, /* like count, inside paid message */
+  yt-live-chat-ticker-paid-message-item-renderer #like-stats > yt-attributed-string, /* like count, live chat - paid message */
+  /* regular videos */
+  ytd-comment-engagement-bar #vote-count-middle, /* like count, comments */
+  like-button-view-model .yt-spec-button-shape-next__button-text-content /* like count */ {
+    display: none !important;
+  }
 
-/*** MARGIN RESET ***/
-like-button-view-model .yt-spec-button-shape-next__icon /* , like button */ {
-  margin: 0 !important;
+  /*** MARGIN RESET ***/
+  like-button-view-model .yt-spec-button-shape-next__icon /* , like button */ {
+    margin: 0 !important;
+  }
 }

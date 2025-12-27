@@ -1,11 +1,13 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** MINI PLAYER ***/
-ytd-miniplayer .videowall-endscreen, /* end screen */
+html[data-yh-hideendscreen] {
+  /*** MINI PLAYER ***/
+  ytd-miniplayer .videowall-endscreen, /* end screen */
 
-/*** WATCH ***/
-/* player */
-ytd-player .ytp-fullscreen-grid, /* end screen, end of video */
-ytd-player [class^="ytp-ce"] /* end screen, near end of video */ {
-  display: none !important;
+  /*** WATCH ***/
+  /* player */
+  ytd-player .ytp-fullscreen-grid, /* end screen, end of video */
+  ytd-player [class^="ytp-ce"] /* end screen, near end of video */ {
+    display: none !important;
+  }
 }

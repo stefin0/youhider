@@ -1,18 +1,20 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** WATCH ***/
-/* player */
-ytd-player yt-player-quick-action-buttons toggle-button-view-model:has(path[d^="M1 6a4"]), /* comment button */
-/* comment section */
-ytd-comments, /* comment section */ 
+html[data-yh-hidecomments] {
+  /*** WATCH ***/
+  /* player */
+  ytd-player yt-player-quick-action-buttons toggle-button-view-model:has(path[d^="M1 6a4"]), /* comment button */
+  /* comment section */
+  ytd-comments, /* comment section */ 
 
-/*** SHORTS ***/
-ytd-shorts reel-action-bar-view-model > :nth-child(3), /* comment button */
-ytd-shorts #anchored-panel-scrim, /* backdrop, small screens */
-ytd-shorts #anchored-panel:has(ytd-comments), /* comments dialog, small screens */
+  /*** SHORTS ***/
+  ytd-shorts reel-action-bar-view-model > :nth-child(3), /* comment button */
+  ytd-shorts #anchored-panel-scrim, /* backdrop, small screens */
+  ytd-shorts #anchored-panel:has(ytd-comments), /* comments dialog, small screens */
 
-/*** CHANNEL ***/
-/* posts */
-ytd-comment-action-buttons-renderer #reply-button-end /* comment button */ {
-  display: none !important;
+  /*** CHANNEL ***/
+  /* posts */
+  ytd-comment-action-buttons-renderer #reply-button-end /* comment button */ {
+    display: none !important;
+  }
 }

@@ -1,26 +1,28 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** SEARCH/SHOPPING ***/
-/* primary */
-ytd-comment-action-buttons-renderer #reply-button-end .yt-spec-button-shape-next__button-text-content, /* comment count, latest posts */
+html[data-yh-hidecommentcount] {
+  /*** SEARCH/SHOPPING ***/
+  /* primary */
+  ytd-comment-action-buttons-renderer #reply-button-end .yt-spec-button-shape-next__button-text-content, /* comment count, latest posts */
 
-/*** SHORTS ***/
-/* action bar */
-reel-action-bar-view-model button-view-model:has(path[d="M1 6a4 4 0 014-4h14a4 4 0 014 4v10a4 4 0 01-4 4h-4.8l-5.105 2.836A1.41 1.41 0 017 21.604V20H5a4 4 0 01-4-4V6Zm8 12v2.601l4.229-2.35.453-.251H19a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h4ZM7 8a1 1 0 000 2h10a1 1 0 100-2H7Zm-1 5a1 1 0 001 1h6a1 1 0 000-2H7a1 1 0 00-1 1Z"]) button + div > span, /* comment count */
-/* anchored panel */
-ytd-engagement-panel-title-header-renderer yt-formatted-string#contextual-info, /* comment count */
+  /*** SHORTS ***/
+  /* action bar */
+  reel-action-bar-view-model button-view-model:has(path[d="M1 6a4 4 0 014-4h14a4 4 0 014 4v10a4 4 0 01-4 4h-4.8l-5.105 2.836A1.41 1.41 0 017 21.604V20H5a4 4 0 01-4-4V6Zm8 12v2.601l4.229-2.35.453-.251H19a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h4ZM7 8a1 1 0 000 2h10a1 1 0 100-2H7Zm-1 5a1 1 0 001 1h6a1 1 0 000-2H7a1 1 0 00-1 1Z"]) button + div > span, /* comment count */
+  /* anchored panel */
+  ytd-engagement-panel-title-header-renderer yt-formatted-string#contextual-info, /* comment count */
 
-/*** WATCH ***/
-/* live videos */
-yt-live-chat-ticker-paid-message-item-renderer #reply-stats > yt-attributed-string, /* comment count, live chat - paid message */
-/* regular videos */
-yt-sub-thread:has(#creator-thumbnail) > .ytSubThreadSubThreadContent > .show-replies-button > .dot, /* delimiter, creator comment */
-ytd-button-renderer#more-replies-sub-thread > yt-button-shape > button > div:nth-of-type(1) > span, /* comment count */
-ytd-comments-header-renderer #count /* comment count */ {
-  display: none !important;
-}
+  /*** WATCH ***/
+  /* live videos */
+  yt-live-chat-ticker-paid-message-item-renderer #reply-stats > yt-attributed-string, /* comment count, live chat - paid message */
+  /* regular videos */
+  yt-sub-thread:has(#creator-thumbnail) > .ytSubThreadSubThreadContent > .show-replies-button > .dot, /* delimiter, creator comment */
+  ytd-button-renderer#more-replies-sub-thread > yt-button-shape > button > div:nth-of-type(1) > span, /* comment count */
+  ytd-comments-header-renderer #count /* comment count */ {
+    display: none !important;
+  }
 
-/*** MARGIN RESET ***/
-ytd-button-renderer#more-replies-sub-thread > yt-button-shape > button > div:nth-of-type(2) /* chevron down */ {
-  margin: 0 !important;
+  /*** MARGIN RESET ***/
+  ytd-button-renderer#more-replies-sub-thread > yt-button-shape > button > div:nth-of-type(2) /* chevron down */ {
+    margin: 0 !important;
+  }
 }

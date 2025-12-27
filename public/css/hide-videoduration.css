@@ -1,59 +1,61 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** MINI PLAYER ***/
-ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-storyboard-framepreview-timestamp), /* current/duration time & timestamp on drag */
+html[data-yh-hidevideoduration] {
+  /*** MINI PLAYER ***/
+  ytd-miniplayer :is(.ytp-time-current, .ytp-time-separator, .ytp-time-duration, .ytp-storyboard-framepreview-timestamp), /* current/duration time & timestamp on drag */
 
-/*** HOME/SUBSCRIPTIONS ***/
-/* preview */
-ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
-ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay:not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* time remaining, hover, no music */
-ytd-video-preview .ytInlinePlayerControlsTimeDisplay:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* time remaining, hover, music */
-/* regular videos               vvv playlists vvv     vvv notify me vvv                                                              vvv live vvv                     vvv no preview vvv                vvv music vvv                                                                                                                             vvv now playing vvv */
-ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"], lottie-component)), /* video duration, no music */
-ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* video duration, music */
+  /*** HOME/SUBSCRIPTIONS ***/
+  /* preview */
+  ytd-video-preview yt-inline-player-controls yt-progress-bar yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, drag */
+  ytd-video-preview:not(:has(.ytInlinePlayerControlsLiveBadge)) yt-inline-player-controls .ytInlinePlayerControlsTimeDisplay:not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* time remaining, hover, no music */
+  ytd-video-preview .ytInlinePlayerControlsTimeDisplay:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* time remaining, hover, music */
+  /* regular videos               vvv playlists vvv     vvv notify me vvv                                                              vvv live vvv                     vvv no preview vvv                vvv music vvv                                                                                                                             vvv now playing vvv */
+  ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"], lottie-component)), /* video duration, no music */
+  ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* video duration, music */
 
-/*** SEARCH/SHOPPING ***/
-/* primary */
-ytd-video-renderer #time, /* timestamp, metadata snippet timestamp */
-ytd-thumbnail-overlay-time-status-renderer:not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* video duration, no music */
-ytd-thumbnail-overlay-time-status-renderer:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* video duration, music */
-ytd-video-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"], lottie-component)), /* video duration, no music */
-ytd-video-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* video duration, music */
-ytd-video-renderer .ytThumbnailOverlayProgressBarHostLabel, /* timestamp, suggested timestamp in progress bar */
-/* secondary */
-ytd-secondary-search-container-renderer yt-formatted-string.duration, /* video duration, mostly music */
+  /*** SEARCH/SHOPPING ***/
+  /* primary */
+  ytd-video-renderer #time, /* timestamp, metadata snippet timestamp */
+  ytd-thumbnail-overlay-time-status-renderer:not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* video duration, no music */
+  ytd-thumbnail-overlay-time-status-renderer:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* video duration, music */
+  ytd-video-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"], lottie-component)), /* video duration, no music */
+  ytd-video-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text, /* video duration, music */
+  ytd-video-renderer .ytThumbnailOverlayProgressBarHostLabel, /* timestamp, suggested timestamp in progress bar */
+  /* secondary */
+  ytd-secondary-search-container-renderer yt-formatted-string.duration, /* video duration, mostly music */
 
-/*** SHORTS ***/
-ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hover */
+  /*** SHORTS ***/
+  ytd-shorts yt-player-storyboard .ytPlayerStoryboardTimestamp, /* timestamp, hover */
 
-/*** WATCH ***/
-/* player */
-ytd-page-manager:not(:has(.ytp-live)) ytd-player .ytp-time-display, /* current/duration */
-ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
-ytd-player .ytp-tooltip-progress-bar-pill-time-stamp, /* scrubbing seek time, hover progress bar */
-/* end screen */
-ytd-player .ytp-ce-video-duration, /* video duration, creator added videos */
-ytd-player .ytp-videowall-still-info-duration, /* video duration, end of video */
-ytd-player .ytp-modern-videowall-still-info-duration, /* video duration */
-/* chapters */
-ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter button */
-ytd-macro-markers-list-item-renderer #time, /* chapter timestamp, inside description */
-ytd-horizontal-card-list-renderer[modern-chapters=""] #items::before, /* blue line connect chapters, inside description */
-/* related */
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* video duration, no music */
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text /* video duration, music */ {
-  display: none !important;
-}
+  /*** WATCH ***/
+  /* player */
+  ytd-page-manager:not(:has(.ytp-live)) ytd-player .ytp-time-display, /* current/duration */
+  ytd-player .ytp-fine-scrubbing-container .ytp-fine-scrubbing-seek-time, /* fine scrubbing time, drag up progress bar */
+  ytd-player .ytp-tooltip-progress-bar-pill-time-stamp, /* scrubbing seek time, hover progress bar */
+  /* end screen */
+  ytd-player .ytp-ce-video-duration, /* video duration, creator added videos */
+  ytd-player .ytp-videowall-still-info-duration, /* video duration, end of video */
+  ytd-player .ytp-modern-videowall-still-info-duration, /* video duration */
+  /* chapters */
+  ytd-macro-markers-list-renderer #time, /* chapter timestamp, click view chapter button */
+  ytd-macro-markers-list-item-renderer #time, /* chapter timestamp, inside description */
+  ytd-horizontal-card-list-renderer[modern-chapters=""] #items::before, /* blue line connect chapters, inside description */
+  /* related */
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:not(.yt-badge-shape--thumbnail-live, .yt-badge-shape--no-text):not(:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"])), /* video duration, no music */
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__text /* video duration, music */ {
+    display: none !important;
+  }
 
-/*** MARGIN RESET ***/
-ytd-video-preview .ytInlinePlayerControlsTimeDisplay:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - HOME->preview */ 
-ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - HOME->regularVideos */
-ytd-thumbnail-overlay-time-status-renderer:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - SEARCH->primary*/
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon /* , music - WATCH->related */ {
-  margin: 0;
-}
+  /*** MARGIN RESET ***/
+  ytd-video-preview .ytInlinePlayerControlsTimeDisplay:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - HOME->preview */ 
+  ytd-rich-item-renderer:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - HOME->regularVideos */
+  ytd-thumbnail-overlay-time-status-renderer:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon, /* , music icon - SEARCH->primary*/
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collections-stack, lockup-attachments-view-model)) yt-thumbnail-badge-view-model badge-shape:has(path[d="M5.5 1.383V6.88a2.25 2.25 0 101 1.871V4.6l2.743 1.647a.5.5 0 00.757-.43V3.485a.5.5 0 00-.243-.429l-3.5-2.1a.5.5 0 00-.757.427Z"]) .yt-badge-shape__icon /* , music - WATCH->related */ {
+    margin: 0;
+  }
 
-/*** MARGIN ADD ***/
-ytd-player .ytp-chapter-container {
-  margin-left: 1rem;
+  /*** MARGIN ADD ***/
+  ytd-player .ytp-chapter-container {
+    margin-left: 1rem;
+  }
 }

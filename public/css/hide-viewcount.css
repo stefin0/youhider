@@ -1,65 +1,67 @@
 /* CSS comments explanation: /* element being hidden, [note]  */
 
-/*** CHANNEL/GAMING ***/
-ytd-channel-video-player-renderer #metadata-line > span:nth-of-type(1), /* view count */
-ytd-channel-video-player-renderer #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */
-ytd-grid-video-renderer #metadata-line > span:only-of-type, /* view count, WARNING: hides upload date too */
-ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(1), /* view count */
-ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2)::before, /* delimiter, after view count */ 
-ytd-game-card-renderer yt-formatted-string#live-viewers-count, /* watching worldwide, gaming */
+html[data-yh-hideviewcount] {
+  /*** CHANNEL/GAMING ***/
+  ytd-channel-video-player-renderer #metadata-line > span:nth-of-type(1), /* view count */
+  ytd-channel-video-player-renderer #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */
+  ytd-grid-video-renderer #metadata-line > span:only-of-type, /* view count, WARNING: hides upload date too */
+  ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(1), /* view count */
+  ytd-grid-video-renderer #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2)::before, /* delimiter, after view count */ 
+  ytd-game-card-renderer yt-formatted-string#live-viewers-count, /* watching worldwide, gaming */
 
-/*** HISTORY ***/
-yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collection-thumbnail-view-model)) yt-content-metadata-view-model > div:nth-of-type(1) > :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* view count & delimter */
+  /*** HISTORY ***/
+  yt-lockup-view-model.ytd-item-section-renderer:not(:has(yt-collection-thumbnail-view-model)) yt-content-metadata-view-model > div:nth-of-type(1) > :is(span[class*="delimiter"], span[class*="delimiter"] + span), /* view count & delimter */
 
-/*** HOME/SUBSCRIPTIONS ***/
-/* regular videos                                                                                                   vvv live videos have 1 span vvv */
-ytd-rich-item-renderer:not(:has(yt-collection-thumbnail-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:nth-of-type(2)) > :is(span:has(+ span[class*="delimiter"]), span[class*="delimiter"]), /* view count & delimter */
-/* live videos */
-ytd-rich-item-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
-ytd-rich-item-renderer:has(lottie-component) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* watching, now playing */
-/* shorts */
-ytm-shorts-lockup-view-model-v2 h3 + div, /* view count */
-/* survey */
-ytd-inline-survey-renderer #metadata-line > span:nth-of-type(1), /* view count */
-ytd-inline-survey-renderer #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */
+  /*** HOME/SUBSCRIPTIONS ***/
+  /* regular videos                                                                                                   vvv live videos have 1 span vvv */
+  ytd-rich-item-renderer:not(:has(yt-collection-thumbnail-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:nth-of-type(2)) > :is(span:has(+ span[class*="delimiter"]), span[class*="delimiter"]), /* view count & delimter */
+  /* live videos */
+  ytd-rich-item-renderer:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
+  ytd-rich-item-renderer:has(lottie-component) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:only-child), /* watching, now playing */
+  /* shorts */
+  ytm-shorts-lockup-view-model-v2 h3 + div, /* view count */
+  /* survey */
+  ytd-inline-survey-renderer #metadata-line > span:nth-of-type(1), /* view count */
+  ytd-inline-survey-renderer #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */
 
-/*** LIVE/MUSIC ***/
-ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* watching */
-ytd-rich-item-renderer ytd-video-meta-block #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(1), /* view count */
-ytd-rich-item-renderer ytd-video-meta-block #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2)::before, /* delimiter, after view count */
+  /*** LIVE/MUSIC ***/
+  ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]) ytd-video-meta-block #metadata-line > span:only-of-type, /* watching */
+  ytd-rich-item-renderer ytd-video-meta-block #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(1), /* view count */
+  ytd-rich-item-renderer ytd-video-meta-block #metadata-line:has(> span:nth-of-type(2)) > span:nth-of-type(2)::before, /* delimiter, after view count */
 
-/*** MINI PLAYER ***/
-ytd-miniplayer .ytp-videowall-still-info-author, /* view count, WARNING: hides author too */
+  /*** MINI PLAYER ***/
+  ytd-miniplayer .ytp-videowall-still-info-author, /* view count, WARNING: hides author too */
 
-/*** PLAYLIST ***/
-ytd-playlist-video-renderer #byline-container :is(#separator, #video-info span:nth-of-type(1)), /* view count & delimiter */
+  /*** PLAYLIST ***/
+  ytd-playlist-video-renderer #byline-container :is(#separator, #video-info span:nth-of-type(1)), /* view count & delimiter */
 
-/*** SEARCH/SHOPPING ***/
-/* primary */
-ytd-watch-card-hero-video-renderer yt-formatted-string#watch-card-subtitle, /* view count, WARNING: hides upload date and name too */
-ytd-watch-card-compact-video-renderer yt-formatted-string.subtitle, /* view count, WARNING: hides upload date too */
-ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(1), /* view count */
-ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */ 
+  /*** SEARCH/SHOPPING ***/
+  /* primary */
+  ytd-watch-card-hero-video-renderer yt-formatted-string#watch-card-subtitle, /* view count, WARNING: hides upload date and name too */
+  ytd-watch-card-compact-video-renderer yt-formatted-string.subtitle, /* view count, WARNING: hides upload date too */
+  ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(1), /* view count */
+  ytd-video-renderer ytd-video-meta-block #metadata-line > span:nth-of-type(2)::before, /* delimiter, after view count */ 
 
-/*** SHORTS ***/
-/* description */
-ytd-video-description-header-renderer[shorts-panel=""] view-count-factoid-renderer, /* view count */
+  /*** SHORTS ***/
+  /* description */
+  ytd-video-description-header-renderer[shorts-panel=""] view-count-factoid-renderer, /* view count */
 
-/*** WATCH ***/
-ytd-watch-info-text #view-count, /* view count, fetched every 5 min -- live and regular videos after 5 min */
-/* end screen */
-ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* view count, WARNING: hides upload date too */
-/* regular videos */
-ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info > :is(span:nth-of-type(1), span:nth-of-type(2)), /* view count */
-/* live videos */
-ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(4)) > :is(span:nth-of-type(1), span:nth-of-type(2), span:nth-of-type(3)), /* watching, when first opening live stream */
-/* offline (scheduled) videos */
-ytd-watch-flexy:has([class^="offline"]) yt-formatted-string#info :is(span:nth-of-type(1), span:nth-of-type(2)), /* view count */
-/* related */
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:nth-of-type(2)) > :is(span:has(+ span[class*="delimiter"]), span[class*="delimiter"]), /* view count & delimter */
-ytd-watch-next-secondary-results-renderer yt-lockup-view-model:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
-/* description */
-ytd-structured-description-video-lockup-renderer yt-formatted-string#metadata-details, /* view count, video in description */
-ytd-watch-info-text #tooltip /* view count, hover description tooltip WARNING: hides upload date too */ {
-  display: none !important;
+  /*** WATCH ***/
+  ytd-watch-info-text #view-count, /* view count, fetched every 5 min -- live and regular videos after 5 min */
+  /* end screen */
+  ytd-player .ytp-modern-videowall-still-view-count-and-date-info, /* view count, WARNING: hides upload date too */
+  /* regular videos */
+  ytd-watch-flexy:not(:has(.ytp-live)) ytd-watch-info-text:has(#view-count[aria-label=""]) yt-formatted-string#info > :is(span:nth-of-type(1), span:nth-of-type(2)), /* view count */
+  /* live videos */
+  ytd-watch-flexy:has(.ytp-live) yt-formatted-string#info:has(span:nth-of-type(4)) > :is(span:nth-of-type(1), span:nth-of-type(2), span:nth-of-type(3)), /* watching, when first opening live stream */
+  /* offline (scheduled) videos */
+  ytd-watch-flexy:has([class^="offline"]) yt-formatted-string#info :is(span:nth-of-type(1), span:nth-of-type(2)), /* view count */
+  /* related */
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:not(:has(yt-collection-thumbnail-view-model)) yt-content-metadata-view-model > div:nth-of-type(2):has(> span:nth-of-type(2)) > :is(span:has(+ span[class*="delimiter"]), span[class*="delimiter"]), /* view count & delimter */
+  ytd-watch-next-secondary-results-renderer yt-lockup-view-model:has(.yt-badge-shape--thumbnail-live) yt-content-metadata-view-model > div:nth-of-type(2), /* watching */
+  /* description */
+  ytd-structured-description-video-lockup-renderer yt-formatted-string#metadata-details, /* view count, video in description */
+  ytd-watch-info-text #tooltip /* view count, hover description tooltip WARNING: hides upload date too */ {
+    display: none !important;
+  }
 }
