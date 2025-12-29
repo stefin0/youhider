@@ -65,3 +65,10 @@ html[data-yh-hideviewcount] {
     display: none !important;
   }
 }
+
+html[data-yh-hideviewcount][data-yh-hideuploaddate] {
+  /*** WATCH ***/
+  ytd-watch-info-text:not(:has(a)) /* ytd-watch-info-text */ {
+    display: none !important;
+  }
+}
