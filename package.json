@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "wxt",
     "dev:firefox": "wxt -b firefox",
+    "test": "vitest",
     "build": "wxt build",
     "build:firefox": "wxt build -b firefox",
     "zip": "wxt zip",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "typescript": "^5.9.2",
+    "vitest": "^4.0.16",
     "wxt": "^0.20.6"
   }
 }
