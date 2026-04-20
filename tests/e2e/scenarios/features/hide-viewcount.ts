@@ -13,9 +13,8 @@ export const viewCountsScenarios = defineScenarios("hideviewcount", [
     beforeTest: seedHomeFeed(),
     snapshotContainer: (page: Page) => {
       return page
-        .locator(
-          "ytd-rich-item-renderer yt-content-metadata-view-model > div:nth-of-type(2)",
-        )
+        .locator("ytd-rich-item-renderer yt-content-metadata-view-model > div")
+        .filter({ hasText: /(view|ago)/i })
         .first();
     },
     prepareElement: stabilizeMetadata(),
@@ -36,7 +35,7 @@ export const viewCountsScenarios = defineScenarios("hideviewcount", [
     url: URLS.VIDEO.ME_AT_THE_ZOO,
     snapshotContainer: (page: Page) => {
       return page
-        .locator(".yt-content-metadata-view-model__metadata-row")
+        .locator(".ytContentMetadataViewModelMetadataRow")
         .filter({ hasText: /view|ago/ })
         .first();
     },
